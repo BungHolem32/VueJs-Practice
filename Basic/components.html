@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.2/css/bulma.css">
+    <style>
+        .container {
+            padding-top : 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="root" class="container">
+
+    <!--CREATE CUSTOM MESSAGE COMPONENT-->
+    <!--<message title="Hello World" body="Lorem ipsum dolar sit amet"></message>-->
+    <!--<message title="Hello Universe" body="Blu Blu Blu"></message>-->
+
+    <!--CREATE CUSTOM MODAL COMPONENT-->
+    <!--<modal v-show="showModal" @close="showModal =false">-->
+    <!--<p>sadsad asd asd asd sa Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores beatae consequatur cum eius excepturi exercitationem, harum, impedit in labore maxime minus nihil nobis odio perspiciatis possimus repellat sint tempore voluptatum.</p>-->
+    <!--</modal>-->
+    <!--<button @click="showModal=true">showModal</button>-->
+
+
+    <tabs>
+        <tab name="about us" :selected="true">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aspernatur cupiditate debitis eius eligendi excepturi fugit labore laudantium magnam minus neque non obcaecati officia perferendis, quod tempore tenetur. Ex, molestiae.</p>
+        </tab>
+        <tab name="about Our Culture">
+            <p>the content is for out culture</p>
+        </tab>
+        <tab name="about Our Vision">
+            <p>the content is for out Vision</p>
+        </tab>
+        <tab name="about our Other">
+            <p>the content is for out Other</p>
+        </tab>
+    </tabs>
+
+
+</div>
+
+<script src="https://unpkg.com/vue"></script>
+<script src="main.js"></script>
+
+
+</body>
+</html>

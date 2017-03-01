@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .changeColor {
+            color : red;
+        }
+
+        .finished {
+            text-decoration : line-through;
+        }
+    </style>
+</head>
+<body>
+
+<div class="root">
+    <!--<h2>First part Tutorial</h2>-->
+    <!--<input type="text" v-model="message">-->
+    <!--<ul>-->
+    <!--<li v-for="name in names">-->
+    <!--<p> my name is: {{name}}</p>-->
+
+    <!--</li>-->
+    <!--</ul>-->
+    <!--<input type="text" v-model="newName">-->
+    <!--<button type="submit" v-on:click="addNewName">add New Name</button>-->
+    <!--<button v-bind:class="{'changeColor':isDisabled}" v-on:mouseover="disableButton">isEnabled</button>-->
+
+    <!--<hr>-->
+    <!--<h2>Second Part Tutorial</h2>-->
+
+
+    <h2> All tasks</h2>
+    <ul>
+        <li v-for="task in tasks" v-bind:class="{'finished': task.completed}">
+            {{task.description}}
+            <button class="complete" @click="completeTask(task)">complete</button>
+            <button class="incomplete" @click="UnCompleteTask(task)">decmoplete</button>
+        </li>
+
+    </ul>
+
+    <h2>Incomplete tasks</h2>
+    <ul>
+        <li v-for="task in incompleteTasks" v-bind:class="{'finished': task.completed}">
+            {{task.description}}
+        </li>
+    </ul>
+
+    <h2>Completed Tasks</h2>
+    <ul>
+        <li v-for="task in completedTasks" v-bind:class="{'finished': task.completed}">
+            {{task.description}}
+        </li>
+    </ul>
+
+</div>
+
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+
+    let app = new Vue({
+        el: ".root",
+        data: {
+            isDisabled: false,
+            changedTask: '',
+            newName: '',
+            message: "whats up dock",
+            names: ['ilan', 'haim', 'slomi'],
+            tasks: [
+                {description: 'Go to the store', 'completed': true},
+                {description: 'Finish screencast', 'completed': false},
+                {description: 'Make donation', 'completed': false},
+                {description: 'Clear inbox', 'completed': true},
+                {description: 'Make dinner', 'completed': false},
+                {description: 'Clean room', 'completed': false}
+            ]
+        },
+        /*all methods*/
+        methods: {
+            addNewName(){
+                this.names.push(this.newName);
+                this.newName = ''
+            },
+            disableButton(){
+
+                this.isDisabled = !this.isDisabled;
+            },
+            completeTask(task){
+                console.log(task);
+                task.completed = true
+            },
+            UnCompleteTask(task){
+                task.completed = false
+            }
+        },
+        /*all computed (filtered */
+        computed: {
+            incompleteTasks(){
+                return this.tasks.filter(task => !task.completed);
+            },
+            completedTasks(){
+                return this.tasks.filter(task => task.completed);
+            }
+        }
+    })
+
+</script>
+</body>
+</html>
